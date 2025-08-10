@@ -1,0 +1,46 @@
+{
+  "posts": [
+    {
+      "id": "1",
+      "title": "Posts",
+      "body": "Some random posters",
+      "userId": 20
+    },
+    {
+      "id": "2",
+      "title": "Posts",
+      "body": "Some random posters",
+      "userId": 21
+    },
+    {
+      "id": "3",
+      "title": "Posts",
+      "body": "Some random posters",
+      "userId": 23
+    },
+    {
+      "id": "4",
+      "title": "Posts",
+      "body": "Some random posters",
+      "userId": 22
+    },
+    {
+      "id": "5",
+      "title": "Posts",
+      "body": "Some random posters",
+      "userId": 24
+    },
+    {
+      "id": 1749663482420,
+      "title": "New Post",
+      "body": "Some random posters. Some random posters",
+      "userId": 58.79133449948837
+    },
+    {
+      "id": 1749663580440,
+      "title": "New Post 2",
+      "body": "New Post 2New Post 2New Post 2New Post 2",
+      "userId": 745.855483200197
+    }
+  ]
+}

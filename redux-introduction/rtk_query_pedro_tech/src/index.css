@@ -1,0 +1,23 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+@theme {
+  --font-Lato: "Lato", "sans-serif";
+  --font-ComicNeue: "Comic Neue", "serif";
+  --color-primaryColor: #ffb200;
+  --color-secondaryColor: #e39402;
+  --color-tertiaryColor: #fcd07e;
+  --color-quaternaryColor: #fbf6e9;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@layer utilities {
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
