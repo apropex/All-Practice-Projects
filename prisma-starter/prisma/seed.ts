@@ -24,7 +24,7 @@ const prisma = new PrismaClient();
         email: "rakib@mail.com",
         age: 20,
         isMarried: false,
-        nationality: "Bangladeshi",
+        nationality: "Brazilian",
       },
       {
         name: "Akib",
