@@ -1,0 +1,1 @@
+pnpm dlx shadcn@latest add alert-dialog avatar badge calendar card dropdown-menu form input menubar popover sheet select sidebar sonner textarea tooltip

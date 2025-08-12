@@ -1,0 +1,4 @@
+{
+  "patchDir": "patches",
+  "packageManager": "pnpm"
+}

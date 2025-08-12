@@ -1,0 +1,63 @@
+diff --git a/node_modules/recharts/types/component/Legend.d.ts b/node_modules/recharts/types/component/Legend.d.ts
+index b4b85b1..052ed61 100644
+--- a/node_modules/recharts/types/component/Legend.d.ts
++++ b/node_modules/recharts/types/component/Legend.d.ts
+@@ -1,11 +1,11 @@
+ import * as React from 'react';
+ import { CSSProperties, PureComponent } from 'react';
+-import { LegendPayload, Props as DefaultProps } from './DefaultLegendContent';
+-import { LayoutType } from '../util/types';
+ import { UniqueOption } from '../util/payload/getUniqPayload';
++import { LayoutType } from '../util/types';
+ import { ElementOffset } from '../util/useElementOffset';
++import { Props as DefaultProps, LegendPayload } from './DefaultLegendContent';
+ export type LegendItemSorter = 'value' | 'dataKey' | ((item: LegendPayload) => number | string);
+-export type Props = Omit<DefaultProps, 'payload' | 'ref'> & {
++export type Props = Omit<DefaultProps, 'ref'> & {
+     wrapperStyle?: CSSProperties;
+     width?: number;
+     height?: number;
+@@ -39,4 +39,5 @@ export declare class Legend extends PureComponent<Props, State> {
+     };
+     render(): React.JSX.Element;
+ }
+-export {};
++export { };
++
+diff --git a/node_modules/recharts/types/component/Tooltip.d.ts b/node_modules/recharts/types/component/Tooltip.d.ts
+index baf4540..c9cb87a 100644
+--- a/node_modules/recharts/types/component/Tooltip.d.ts
++++ b/node_modules/recharts/types/component/Tooltip.d.ts
+@@ -1,12 +1,12 @@
+ import * as React from 'react';
+ import { CSSProperties, ReactElement, ReactNode } from 'react';
+-import { NameType, Payload, Props as DefaultTooltipContentProps, ValueType } from './DefaultTooltipContent';
++import { TooltipTrigger } from '../chart/types';
++import { AxisId } from '../state/cartesianAxisSlice';
++import { TooltipIndex } from '../state/tooltipSlice';
+ import { UniqueOption } from '../util/payload/getUniqPayload';
+ import { AllowInDimension, AnimationDuration, AnimationTiming, ChartCoordinate, Coordinate } from '../util/types';
+ import { CursorDefinition } from './Cursor';
+-import { TooltipTrigger } from '../chart/types';
+-import { TooltipIndex } from '../state/tooltipSlice';
+-import { AxisId } from '../state/cartesianAxisSlice';
++import { Props as DefaultTooltipContentProps, NameType, Payload, ValueType } from './DefaultTooltipContent';
+ export type ContentType<TValue extends ValueType, TName extends NameType> = ReactElement | ((props: TooltipContentProps<TValue, TName>) => ReactNode);
+ export type TooltipContentProps<TValue extends ValueType, TName extends NameType> = TooltipProps<TValue, TName> & {
+     label?: string | number;
+@@ -15,7 +15,7 @@ export type TooltipContentProps<TValue extends ValueType, TName extends NameType
+     active: boolean;
+     accessibilityLayer: boolean;
+ };
+-type PropertiesReadFromContext = 'viewBox' | 'active' | 'payload' | 'coordinate' | 'label' | 'accessibilityLayer';
++type PropertiesReadFromContext = 'viewBox' | 'active' | 'coordinate' | 'accessibilityLayer';
+ export type TooltipProps<TValue extends ValueType, TName extends NameType> = Omit<DefaultTooltipContentProps<TValue, TName>, PropertiesReadFromContext> & {
+     /**
+      * If true, then Tooltip is always displayed, once an activeIndex is set by mouse over, or programmatically.
+@@ -68,4 +68,5 @@ export type TooltipProps<TValue extends ValueType, TName extends NameType> = Omi
+     axisId?: AxisId;
+ };
+ export declare function Tooltip<TValue extends ValueType, TName extends NameType>(outsideProps: TooltipProps<TValue, TName>): React.JSX.Element;
+-export {};
++export { };
++

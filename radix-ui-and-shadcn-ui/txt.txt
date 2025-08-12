@@ -1,0 +1,1 @@
+node_modules\.pnpm\recharts@3.0.2_@types+react_e87eea494aa0fa1350eabc1978f02d5e\node_modules\recharts\types\component\Tooltip.d.ts

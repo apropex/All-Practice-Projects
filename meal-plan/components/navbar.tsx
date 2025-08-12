@@ -2,16 +2,31 @@
 
 "use client";
 
-import Link from "next/link";
+import { SignedIn, SignedOut, SignOutButton, useUser } from "@clerk/nextjs";
 import Image from "next/image";
-import { useUser, SignedIn, SignedOut, SignOutButton } from "@clerk/nextjs";
+import Link from "next/link";
 
 export default function NavBar() {
   const { isLoaded, isSignedIn, user } = useUser();
 
   if (!isLoaded) {
     // Optionally, return a loading indicator or skeleton here
-    return null;
+    return (
+      <div className="container mx-auto w-full  p-4">
+        <div className="flex items-center animate-pulse space-x-4">
+          <div className="flex-1 space-y-6 py-1">
+            <div className="space-y-3">
+              <div className="grid grid-cols-3 gap-4">
+                <div className="col-span-2 h-2 rounded bg-gray-200"></div>
+                <div className="col-span-1 h-2 rounded bg-gray-200"></div>
+              </div>
+              <div className="h-2 rounded bg-gray-200"></div>
+            </div>
+          </div>
+          <div className="size-10 rounded-full bg-gray-200"></div>
+        </div>
+      </div>
+    );
   }
 
   return (
@@ -21,7 +36,7 @@ export default function NavBar() {
         <Link href="/">
           <Image
             className="text-xl font-bold text-emerald-700 cursor-pointer"
-            src="/logo.png" // Ensure this path is correct or replace with your logo path
+            src="/logo.png"
             width={60}
             height={60}
             alt="Logo"

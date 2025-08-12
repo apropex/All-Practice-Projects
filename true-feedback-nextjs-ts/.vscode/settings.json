@@ -1,0 +1,26 @@
+{
+  "cSpell.ignoreWords": [
+    "NEXTAUTH",
+    "sonner",
+    "mystry"
+  ],
+  "todo-tree.highlights.useColourScheme": true,
+  "todo-tree.highlights.customHighlight": {
+    "TODO": {
+      "type": "tag",
+      "foreground": "#000000",
+      "background": "#ffe600"
+    },
+    "BUG": {
+      "type": "tag",
+      "foreground": "#000000",
+      "background": "#ffe600"
+    },
+    "FIXME": {
+      "type": "line",
+      "icon": "bug",
+      "foreground": "#000",
+      "background": "#fbff00"
+    }
+  }
+}
