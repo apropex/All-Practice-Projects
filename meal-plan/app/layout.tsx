@@ -1,3 +1,4 @@
+import ReactQueryClientProvider from "@/components/react-query-client-provider";
 import { ClerkProvider } from "@clerk/nextjs";
 import type { Metadata } from "next";
 import NavBar from "../components/navbar";
@@ -17,10 +18,12 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en">
         <body className="bg-gray-50 text-gray-900">
-          <NavBar />
-          <main className="container mx-auto pt-16 p-4 min-h-screen">
-            {children}
-          </main>
+          <ReactQueryClientProvider>
+            <NavBar />
+            <main className="container mx-auto pt-16 p-4 min-h-screen">
+              {children}
+            </main>
+          </ReactQueryClientProvider>
         </body>
       </html>
     </ClerkProvider>
