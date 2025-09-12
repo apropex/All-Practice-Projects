@@ -1,22 +1,15 @@
 "use client";
 
-import { z } from "zod";
-import { onboardingSchema } from "../schema";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import {
-  Form,
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { useRouter } from "next/navigation";
 import { useOnboardingStore } from "@/app/onboarding/store";
+import { Button } from "@/components/ui/button";
+import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel } from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
+import { useForm } from "react-hook-form";
+import z from "zod";
+import { onboardingSchema } from "../schema";
 
 const onboardingNameSchema = onboardingSchema.pick({
   firstName: true,
@@ -27,9 +20,9 @@ type OnboardingNameSchema = z.infer<typeof onboardingNameSchema>;
 
 export default function OnboardingNameForm() {
   const router = useRouter();
-
   const setData = useOnboardingStore((state) => state.setData);
 
+  //
   const form = useForm<OnboardingNameSchema>({
     resolver: zodResolver(onboardingNameSchema),
     defaultValues: {
@@ -38,16 +31,26 @@ export default function OnboardingNameForm() {
     },
   });
 
+  useEffect(() => {
+    const { state } = JSON.parse(localStorage.getItem("onboarding-storage") || "");
+    if (state) {
+      form.setValue("firstName", state.firstName);
+      form.setValue("lastName", state.lastName);
+    }
+    console.log(state);
+  }, [form]);
+
   const onSubmit = (data: OnboardingNameSchema) => {
     setData(data);
     router.push("/onboarding/password");
+    console.log(data);
   };
 
   return (
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="w-[300px] space-y-8"
+        className="w-96 mx-auto m-16 space-y-8 bg-gray-100/50 border rounded-2xl p-8"
       >
         <FormField
           control={form.control}
@@ -58,11 +61,11 @@ export default function OnboardingNameForm() {
               <FormControl>
                 <Input placeholder="John" {...field} />
               </FormControl>
-              <FormDescription>This is your first name.</FormDescription>
-              <FormMessage />
+              <FormDescription>This is your first name</FormDescription>
             </FormItem>
           )}
         />
+
         <FormField
           control={form.control}
           name="lastName"
@@ -72,12 +75,14 @@ export default function OnboardingNameForm() {
               <FormControl>
                 <Input placeholder="Doe" {...field} />
               </FormControl>
-              <FormDescription>This is your last name.</FormDescription>
-              <FormMessage />
+              <FormDescription>This is your last name</FormDescription>
             </FormItem>
           )}
         />
-        <Button type="submit">Next</Button>
+
+        <div className="flex justify-end">
+          <Button type="submit">Next</Button>
+        </div>
       </form>
     </Form>
   );

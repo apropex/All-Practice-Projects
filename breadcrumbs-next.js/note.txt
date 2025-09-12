@@ -1,0 +1,27 @@
+pnpm prettier --write .
+
+pnpm add -D prettier prettier-plugin-prisma
+
+
+{
+  "singleQuote": false,
+  "bracketSpacing": true,
+  "tabWidth": 2,
+  "quoteProps": "as-needed",
+  "trailingComma": "es5",
+  "semi": true,
+  "printWidth": 80,
+  "plugins": ["prettier-plugin-prisma"]
+}
+
+
+
+
+isomorphic-dompurify
+pnpm add isomorphic-dompurify
+
+
+
+pnpm prisma db pull
+pnpm prisma db push
+pnpm prisma studio

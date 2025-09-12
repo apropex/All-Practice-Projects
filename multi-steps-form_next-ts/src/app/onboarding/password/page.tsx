@@ -1,5 +1,5 @@
-import OnboardingPasswordForm from "@/features/onboarding/components/onboarding-password-form";
+import OnboardingPasswordForm from "@/features/onboarding/components/OnboardingPasswordForm";
 
-export default function OnboardingPasswordPage() {
+export default function OnboardingPassword() {
   return <OnboardingPasswordForm />;
 }

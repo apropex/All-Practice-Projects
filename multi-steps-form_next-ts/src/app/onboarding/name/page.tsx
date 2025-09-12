@@ -1,5 +1,7 @@
-import OnboardingNameForm from "@/features/onboarding/components/onboaring-name-form";
+//
 
-export default function OnboardingNamePage() {
+import OnboardingNameForm from "@/features/onboarding/components/OnboardingNameForm";
+
+export default function OnboardingName() {
   return <OnboardingNameForm />;
 }
