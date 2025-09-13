@@ -1,5 +1,7 @@
 bun add -D prettier prettier-plugin-prisma
 
+npm i -g prettier-plugin-prisma 
+
 // .prettierrc
 {
   "singleQuote": false,
